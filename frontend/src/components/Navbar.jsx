@@ -28,7 +28,7 @@ export default function Navbar() {
         <IconButton
           onClick={() => {
             localStorage.removeItem("token");
-            window.location.href = "/login";
+            window.location.href = "/";
           }}
           sx={{ color: "white" }}
         >
