@@ -33,7 +33,7 @@ export default function Dashboard() {
         {loading ? (
           <Box textAlign="center"><CircularProgress /></Box>
         ) : (
-          tasks.map(task => (
+          tasks?.map(task => (
             <TaskCard key={task._id} task={task} refreshTasks={fetchTasks} />
           ))
         )}

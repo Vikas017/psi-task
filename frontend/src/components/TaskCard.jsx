@@ -129,7 +129,7 @@ export default function TaskCard({ task, refreshTasks }) {
                 <Button
                   key={i}
                   size="small"
-                  href={`http://localhost:5000/${doc}`}
+                  href={`${ import.meta.env.VITE_API_URL}/${doc}`}
                   target="_blank"
                   onClick={(e) => e.stopPropagation()}
                 >
