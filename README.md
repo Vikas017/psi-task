@@ -1,149 +1,204 @@
 # 🗂️ Task Management System (Full Stack)
 
-A full-stack Task Management application built using:
+A full-stack Task Management application built with modern technologies.
 
-- Frontend: React (Vite) + Material UI + Tailwind CSS
-- Backend: Node.js + Express
-- Database: MongoDB (Atlas / Local)
-- Authentication: JWT-based
-- File Upload: Local storage (uploads folder)
-- Containerization: Docker + Docker Compose
+---
+
+## 🌐 Live URLs
+
+* **Frontend:** https://psi-task.onrender.com
+* **Backend API:** https://psi-task-backend.onrender.com/api
 
 ---
 
 ## 🚀 Features
 
-### 👤 Authentication
-- User registration & login
-- JWT authentication
-- Role-based access (Admin / User)
+### Authentication
 
-### 🧑‍💼 Roles
-- Admin:
-  - Create tasks
-  - Assign tasks to users
-  - Update all fields
-  - Delete tasks
-  - Upload & manage documents
+* User registration & login
+* JWT-based authentication
+* Role-based access control (Admin / User)
 
-- User:
-  - View assigned tasks
-  - Update only task status
-  - Cannot delete or edit restricted fields
+### Roles
 
----
+**Admin**
 
-### 📋 Task Management
-- Create task
-- Update task
-- Delete task (admin only)
-- Assign task to users
-- Status tracking (todo / in-progress / done)
-- Priority management
-- Due date support
+* Create tasks
+* Assign tasks to users
+* Update all task fields
+* Delete tasks
+* Upload & manage documents
+
+**User**
+
+* View assigned tasks
+* Update only task status
+* Cannot modify restricted fields
 
 ---
 
-### 📎 File Upload
-- Upload up to 3 PDF documents per task
-- View uploaded documents
-- Remove documents (admin only)
-- Stored locally in `/uploads`
+### Task Management
 
-> ⚠️ Note: Local storage may not persist in cloud deployments. For production, use AWS S3 / Cloudinary.
+* Create, update, delete tasks
+* Assign tasks to users
+* Status tracking (todo / in-progress / done)
+* Priority management
+* Due date support
+* Filtering & sorting
+
+---
+
+### File Upload
+
+* Upload up to 3 PDF documents per task
+* View uploaded documents
+* Remove documents (admin only)
+
+> Note: Files are stored locally. In cloud environments, persistence may not be guaranteed.
 
 ---
 
 ## 🧱 Tech Stack
 
 ### Frontend
-- React (Vite)
-- Material UI
-- Tailwind CSS
-- Axios
-- React Router
+
+* React (Vite)
+* Material UI
+* Tailwind CSS
+* Axios
+* React Router
 
 ### Backend
-- Node.js
-- Express.js
-- MongoDB + Mongoose
-- JWT Authentication
-- Multer (file upload)
+
+* Node.js
+* Express.js
+* MongoDB (Atlas)
+* Mongoose
+* JWT Authentication
+* Multer (file upload)
 
 ### DevOps
-- Docker
-- Docker Compose
+
+* Docker
+* Docker Compose
 
 ---
 
 ## 📁 Project Structure
+
+```
 psi-task/
 │
 ├── backend/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── middleware/
-│ ├── uploads/
-│ ├── server.js
-│ └── Dockerfile
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── uploads/
+│   └── server.js
 │
 ├── frontend/
-│ ├── src/
-│ │ ├── pages/
-│ │ ├── components/
-│ │ ├── services/
-│ │ └── utils/
-│ ├── vite.config.js
-│ └── Dockerfile
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── services/
+│   │   └── utils/
+│   └── vite.config.js
 │
 ├── docker-compose.yml
 └── README.md
-
-## ⚙️ Environment Variables
-
-### Backend `.env`
-
-
-PORT=5000
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_secret_key
-
+```
 
 ---
 
-## ▶️ How to Run Locally
+## ⚙️ Environment Variables
 
-### 1️⃣ Clone repository
-```bash
-git clone https://github.com/your-username/task-manager.git
-cd task-manager
-2️⃣ Run with Docker (Recommended)
+### Backend
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_secret_key
+```
+
+### Frontend
+
+```
+VITE_API_URL=https://psi-task-backend.onrender.com/api
+```
+
+---
+
+## ▶️ Run Locally
+
+### Using Docker
+
+```
 docker-compose up --build
-3️⃣ Without Docker
-Backend
+```
+
+---
+
+### Without Docker
+
+**Backend**
+
+```
 cd backend
 npm install
 npm start
-Frontend
+```
+
+**Frontend**
+
+```
 cd frontend
 npm install
 npm run dev
-🔐 Default Admin Setup
+```
 
-You can manually create an admin user using API or MongoDB.
+---
 
-Option 1: Register API
+## 🔐 Admin Setup
+
+### Option 1: Register via API
+
+```
 POST /auth/register
+```
 
-Then manually update role in DB:
+Then update role in database:
 
-{
-  "email": "admin@gmail.com",
-  "role": "admin"
-}
-Option 2: Direct MongoDB
-
-Set:
-
+```
 role: "admin"
+```
+
+---
+
+### Option 2: Direct MongoDB
+
+Set user role manually:
+
+```
+role: "admin"
+```
+
+---
+
+## ⚠️ Notes
+
+* MongoDB Atlas is used for production database
+* Local uploads are used for file storage (not persistent in cloud)
+* Environment variables must be configured in deployment platform
+
+---
+
+## 📌 Summary
+
+* Full-stack task management system
+* Role-based access control
+* File upload support
+* Dockerized setup
+* Deployed on Render
+
+---
